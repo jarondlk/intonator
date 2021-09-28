@@ -1,0 +1,30 @@
+{%extends "base.html" %}
+{% block head %}
+<title>TextToneDGE</title>
+{% endblock %}
+
+{% block body %}
+<section class="mt-auto">
+    <form class="d-md-flex flex-column align-items-md-center" style="padding: 20vh;padding-bottom: 16px;" action="/returned"
+        methods="POST" id="sentence">
+        <h1 style="font-size: 32px;margin-bottom: 16px;">Text Tone Analyzer</h1>
+        <div><textarea class="form-control" name="sentence"
+                style="color: rgb(255,255,255);background: rgb(37,51,65);border-style: none;border-radius: 16px;"
+                rows="3"></textarea></div>
+        <div><input class="btn btn-primary" type="submit" value="Analyze"
+                style="background: rgb(29,155,240);margin-top: 16px;border-style: none;border-radius: 10\px;"></div>
+    </form>
+    {% if tone_pred %}
+    <p style="text-align: center;color: rgb(255,255,255);font-size: 18px;">Tone: {{tone_pred}}</p>
+    {% endif %}
+</section>
+<footer class="d-md-flex flex-column mt-auto justify-content-md-center align-items-md-center footer-basic"
+    style="font-size: 16px;">
+    <ul class="list-inline" style="font-size: 24px;">
+        <li class="list-inline-item" style="color: rgb(29,155,240);"><a
+                href="https://github.com/Kitrinos78/text-tone-dge"
+                style="background: rgba(255,255,255,0);color: #1d9bf0;font-size: 18px;">About</a></li>
+    </ul>
+    <p class="copyright" style="color: rgb(131,148,160);font-size: 12px;margin-top: -8px;">DGE'03 © 2021</p>
+</footer>
+{% endblock %}
